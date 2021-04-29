@@ -13,7 +13,7 @@ class Board(dict):
 
     y_axis = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H')
     x_axis = (1, 2, 3, 4, 5, 6, 7, 8)
-    captured_pieces = { 'white': [], 'black': [] }
+    captured_pieces = { 'red': [], 'blue': [] }
     player_turn = None
     halfmove_clock = 0
     fullmove_number = 1
@@ -36,7 +36,7 @@ class Board(dict):
             dest = None
         if self.player_turn != piece.color:
             raise NotYourTurn("Not " + piece.color + "'s turn!")
-        enemy = ('white' if piece.color == 'black' else 'black' )
+        enemy = ('red' if piece.color == 'blue' else 'blue' )
         moves_available = piece.moves_available(p1)
         if p2 not in moves_available:
             raise InvalidMove
